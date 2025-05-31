@@ -1,55 +1,62 @@
+:root {
+  --gap-between: 0.5rem;
+  --dark-color: rgba(27, 27, 27, 1.0);
+  --light-color: rgba(45, 45, 45, 1.0);
+  --shadow-color: rgba(0, 0, 0, 0.70);
+  --soft-edge-color: rgba(255, 255, 255, 0.08);
+}
+
 html,
 body {
-  background-color: #282c34;
+  background-color: var(--light-color);
+  height: 100%;
+  margin: 0;
 }
 
 .App {
+  position: relative;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  font-weight: 100;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.css-grid-8x4 {
-  margin: 1rem;
+.css-grid-8x8 {
+  position: relative;
+  margin: var(--gap-between);
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  height: calc(100vh - 2rem);
-  gap: 1rem;
+  height: calc(100vh - (var(--gap-between)*2));
+  gap: var(--gap-between);
 }
 
 .flex-item {
-  background-color: #4e5460;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 12px var(--shadow-color);
+  background-color: var(--dark-color);
   border-radius: 12px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-items: center;
   justify-content: center;
+  border: 2px solid var(--soft-edge-color);
+}
+
+.f-row {
+  display: flex;
+  gap: var(--gap-between);
+  height: 100%;
+  align-items: center;
+}
+
+.circle {
+  aspect-ratio: 1;
+  position: relative;
+  border: 1px solid white;
+  border-radius: 100%;
+  background-color: transparent;
+  color: white;
 }
 
 @keyframes App-logo-spin {
