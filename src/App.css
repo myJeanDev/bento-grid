@@ -1,5 +1,5 @@
 :root {
-  --gap-between: 0.5rem;
+  --gap-between: 0.6rem;
   --dark-color: rgba(27, 27, 27, 1.0);
   --light-color: rgba(45, 45, 45, 1.0);
   --shadow-color: rgba(0, 0, 0, 0.70);
@@ -9,7 +9,6 @@
 html,
 body {
   background-color: var(--light-color);
-  height: 100%;
   margin: 0;
 }
 
@@ -20,16 +19,6 @@ body {
   font-weight: 100;
 }
 
-.css-grid-8x8 {
-  position: relative;
-  margin: var(--gap-between);
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  height: calc(100vh - (var(--gap-between)*2));
-  gap: var(--gap-between);
-}
-
 .flex-item {
   position: relative;
   width: 100%;
@@ -38,9 +27,11 @@ body {
   background-color: var(--dark-color);
   border-radius: 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   border: 2px solid var(--soft-edge-color);
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .f-row {
@@ -59,12 +50,30 @@ body {
   color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.flex-item-title {
+  text-align: left;
+  font-weight: 100;
+  font-size: 1.5rem;
+}
 
-  to {
-    transform: rotate(360deg);
+.css-grid-8x8 {
+  position: relative;
+  margin: var(--gap-between);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  height: 100%;
+  gap: var(--gap-between);
+}
+
+@media only screen and (min-width: 600px) {
+  .css-grid-8x8 {
+    position: relative;
+    margin: var(--gap-between);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: calc(100vh - (var(--gap-between)*2));
+    gap: var(--gap-between);
   }
 }
